@@ -1,6 +1,6 @@
 {
   "name": "egg-sequelizer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "use sequelize in eggjs",
   "eggPlugin": {
     "name": "sequelizer"
