@@ -38,7 +38,7 @@ exports.sequelizer = {
     // directory: '', // 指向 'app/model', 默认的模型文件的目录
     database: 'dbOneName',
     host: '***'
-    user: '***',
+    username: '***',
     password: '***'
   }
 };
@@ -52,19 +52,21 @@ exports.sequelizer = {
       directory: 'dbOne', // 指向 'app/model/dbOne'
       database: 'dbOneName',
       host: '***'
-      user: '***',
+      username: '***',
       password: '***'
     },
     dbTwoAlias: {
       directory: 'dbTwo', // 指向 'app/model/dbTwo
       database: 'dbTwoName',
       host: '***'
-      user: '***',
+      username: '***',
       password: '***'
     }
   }
 };
 ```
+
+`directory` 可以是绝对或相对（于应用下面的`app/model`目录）路径，支持多目录（数组）。
 
 ## License
 

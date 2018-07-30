@@ -38,7 +38,7 @@ exports.sequelizer = {
     // directory: '', // resolved to be 'app/model', which is default.
     database: 'dbOneName',
     host: '***'
-    user: '***',
+    username: '***',
     password: '***'
   }
 };
@@ -52,19 +52,21 @@ exports.sequelizer = {
       directory: 'dbOne', // resolved to be 'app/model/dbOne'
       database: 'dbOneName',
       host: '***'
-      user: '***',
+      username: '***',
       password: '***'
     },
     dbTwoAlias: {
       directory: 'dbTwo', // resolved to be 'app/model/dbTwo
       database: 'dbTwoName',
       host: '***'
-      user: '***',
+      username: '***',
       password: '***'
     }
   }
 };
 ```
+
+`directory` can be an absolute or relative (to application `app/model`) path(s).
 
 ## License
 

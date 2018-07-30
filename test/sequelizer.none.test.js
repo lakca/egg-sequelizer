@@ -7,9 +7,7 @@ describe('test/sequelizer.none.js', () => {
 
   it('no client or clients config', async () => {
     try {
-      mock.app({
-        baseDir: 'apps/sequelizer-none',
-      });
+      mock.app({ baseDir: 'apps/sequelizer-none' });
     } catch (e) {
       assert(e instanceof Error);
       assert(/^\[egg-sequelizer\]/.test(e.message));

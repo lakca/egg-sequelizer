@@ -44,6 +44,7 @@
     "app",
     "config",
     "app.js",
+    "agent.js",
     "lib"
   ],
   "ci": {

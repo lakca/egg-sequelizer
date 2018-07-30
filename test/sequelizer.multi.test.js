@@ -5,15 +5,12 @@ const assert = require('assert');
 
 describe('test/sequelizer.multi.js', () => {
   let app;
-  before(async () => {
-    app = mock.app({
-      baseDir: 'apps/sequelizer-multi',
-    });
-    await app.ready();
-    app.beforeStart(async function() {
-      await Promise.all(Object.keys(app.models).map(name => app.models[name].sync()));
-    });
+  before(() => {
+    app = mock.app({ baseDir: 'apps/sequelizer-multi' });
+    return app.ready();
   });
+
+  before(() => Promise.all(Object.keys(app.models).map(name => app.models[name].sync({ force: true }))));
 
   after(() => app.close());
   afterEach(mock.restore);
@@ -30,6 +27,8 @@ describe('test/sequelizer.multi.js', () => {
     assert(app.model === app.models.account);
     assert(ctx.model === ctx.models.account);
     assert(app.model === ctx.model);
+    assert(app.models.account.Test);
+    assert(app.models.account.Test2);
   });
 
   it('do query', async () => {
@@ -38,9 +37,13 @@ describe('test/sequelizer.multi.js', () => {
     const count2 = await account.Profile.count();
     const count3 = await post.Type.count();
     const count4 = await post.Finance.Article.count();
+    const count5 = await account.Test.count();
+    const count6 = await account.Test2.count();
     assert(count1 === 0);
     assert(count2 === 0);
     assert(count3 === 0);
     assert(count4 === 0);
+    assert(count5 === 0);
+    assert(count6 === 0);
   });
 });

@@ -6,14 +6,11 @@ const assert = require('assert');
 describe('test/sequelizer.single.js', () => {
   let app;
   before(async () => {
-    app = mock.app({
-      baseDir: 'apps/sequelizer-single',
-    });
-    await app.ready();
-    app.beforeStart(async function() {
-      await app.model.sync();
-    });
+    app = mock.app({ baseDir: 'apps/sequelizer-single' });
+    return app.ready();
   });
+
+  before(() => app.model.sync({ force: true }));
 
   after(() => app.close());
   afterEach(mock.restore);
